@@ -1,4 +1,4 @@
-== label_tag Bug Isolation Project
+## label_tag Bug Isolation Project ##
 
 Check out live @
 http://labelbug.felipecoury.com
