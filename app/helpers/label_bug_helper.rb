@@ -1,0 +1,2 @@
+module LabelBugHelper
+end

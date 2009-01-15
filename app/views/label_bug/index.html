@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>index</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Felipe Coury">
+	<!-- Date: 2009-01-15 -->
+	<style type="text/css" media="screen">
+		body {
+			font-family: helvetica,arial,clean,sans-serif;
+			font-size: 13.34px;
+		}
+		
+		code {
+			background-color: #EAEAEA;
+			border: 1px #D0D0D0 solid;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		Creating <code>radio_button_tag '<%= @name %>', '<%= @value %>'</code> and <code>label_tag '<%= @id %>', 'Apache 2.2'</code>
+	</p>
+	<p>
+		Renders like this:
+		<div id='render'>
+			<%= @radio %>
+			<%= @label %>
+		</div>
+	</p>
+	<p>
+		If you try to click the label, it won't select the radio as expected, because the radio id rendering took out the dot, while
+		the label for rendering did not.
+	</p>
+	<p>
+		HTML for radio:<br/>
+		<code>
+			<%= h(@radio).gsub(/id=&quot;(.*?)&quot;/, '<b>\0</b>') %>
+		</code>
+	</p>
+	<p>
+		HTML for label:<br/>
+		<code>
+			<%= h(@label).gsub(/for=&quot;(.*?)&quot;/, '<b>\0</b>') %>
+		</code>
+	</p>
+	
+</body>
+</html>
