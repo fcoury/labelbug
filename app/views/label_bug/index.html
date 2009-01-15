@@ -43,11 +43,23 @@
 			background-color: #FAFAFA;
 			border: 1px #E0E0E0 solid;
 		}
+		
+		#credit {
+			width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+			border-top: 1px #A0A0A0 dotted;
+			border-bottom: 1px #A0A0A0 dotted;
+			margin-top: 20px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
 	<div id='overall'>
-		<h2>Label HTML rendering bug</h2>
+		<h2>label_tag rendering bug</h2>
 
 		If you create a radio button:
 		<div id='code'>
@@ -81,6 +93,9 @@
 				<%= h(@label).gsub(/for=&quot;(.*?)&quot;/, '<b>\0</b>') %>
 			</code>
 		</p>
+	</div>
+	<div id='credit'>
+		Created by <a href="http://felipecoury.com">Felipe Coury</a>
 	</div>
 </body>
 </html>
