@@ -17,36 +17,70 @@
 		code {
 			background-color: #EAEAEA;
 			border: 1px #D0D0D0 solid;
+			clear: both;
+			margin-left: 20px;
+		}
+		
+		#code {
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		
+		#render {
+			margin-left: 20px;
+			width: 100px;
+			padding: 10px;
+			border: 1px #D0D0D0 solid;
+			background-color: #FFFFF0;
+		}
+		
+		#overall {
+			width: 800px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: #FAFAFA;
+			border: 1px #E0E0E0 solid;
 		}
 	</style>
 </head>
 <body>
-	<p>
-		Creating <code>radio_button_tag '<%= @name %>', '<%= @value %>'</code> and <code>label_tag '<%= @id %>', 'Apache 2.2'</code>
-	</p>
-	<p>
-		Renders like this:
-		<div id='render'>
-			<%= @radio %>
-			<%= @label %>
+	<div id='overall'>
+		<h2>Label HTML rendering bug</h2>
+
+		If you create a radio button:
+		<div id='code'>
+			<code>radio_button_tag '<%= @name %>', '<%= @value %>'</code>
 		</div>
-	</p>
-	<p>
-		If you try to click the label, it won't select the radio as expected, because the radio id rendering took out the dot, while
-		the label for rendering did not.
-	</p>
-	<p>
-		HTML for radio:<br/>
-		<code>
-			<%= h(@radio).gsub(/id=&quot;(.*?)&quot;/, '<b>\0</b>') %>
-		</code>
-	</p>
-	<p>
-		HTML for label:<br/>
-		<code>
-			<%= h(@label).gsub(/for=&quot;(.*?)&quot;/, '<b>\0</b>') %>
-		</code>
-	</p>
-	
+		along with a label tag to match it:
+		<div id='code'>
+			<code>label_tag '<%= @id %>', 'Apache 2.2'</code>
+		</div>
+		
+		<p>
+			It will render like this:
+			<div id='render'>
+				<%= @radio %>
+				<%= @label %>
+			</div>
+		</p>
+		<p>
+			If you try to click the label, it won't select the radio as expected, because the radio id rendering took out the dot, while
+			the label for rendering did not.
+		</p>
+		<p>
+			HTML for radio:<br/>
+			<code>
+				<%= h(@radio).gsub(/id=&quot;(.*?)&quot;/, '<b>\0</b>') %>
+			</code>
+		</p>
+		<p>
+			HTML for label:<br/>
+			<code>
+				<%= h(@label).gsub(/for=&quot;(.*?)&quot;/, '<b>\0</b>') %>
+			</code>
+		</p>
+	</div>
 </body>
 </html>
