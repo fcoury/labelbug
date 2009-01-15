@@ -1,4 +1,4 @@
 ## label\_tag Bug Isolation Project ##
 
-Check out live @
-http://labelbug.felipecoury.com
+Check out live @<br/>
+[http://labelbug.felipecoury.com]([http://labelbug.felipecoury.com)
